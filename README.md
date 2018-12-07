@@ -1,5 +1,4 @@
-# graphql-crud-ref
-graphql crud methods
+# GraphQL CRUD methods
 
 ## ```npm run json:server```
 ## ```npm run dev:server```
