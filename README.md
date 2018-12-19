@@ -25,7 +25,33 @@ addCustomer: {
       }
     },
 ```
-# READ
+# READ: 
+```
+const RootQuery = new GraphQLObjectType({
+  name: "RootQueryType",
+  fields: {
+    customer: {
+      type: CustomerType,
+      args: {
+        id: { type: GraphQLString }
+      },
+      resolve(parentValue, args) {
+        return axios
+          .get(`http://localhost:3000/customers/${args.id}`)
+          .then(res => res.data);
+      }
+    },
+    customers: {
+      type: new GraphQLList(CustomerType),
+      resolve(parentValue, args) {
+        return axios
+          .get(`http://localhost:3000/customers/`)
+          .thenI(res => res.data);
+      }
+    }
+  }
+});
+```
 # UPDATE: 
 ```
 editCustomer:{
