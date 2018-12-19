@@ -26,7 +26,36 @@ addCustomer: {
     },
 ```
 # READ
-# UPDATE 
-# DELETE
+# UPDATE: 
+```
+editCustomer:{
+      type:CustomerType,
+      args:{
+          id:{type: new GraphQLNonNull(GraphQLString)},
+          name: {type: GraphQLString},
+          email: {type: GraphQLString},
+          age: {type: GraphQLInt}
+      },
+      resolve(parentValue, args){
+          return axios.patch('http://localhost:3000/customers/'+args.id, args)
+          .then(res => res.data);
+      }
+  },
+```
+# DELETE:
+```
+deleteCustomer: {
+      type: CustomerType,
+      args: {
+        id: { type: new GraphQLNonNull(GraphQLString) }
+      },
+      resolve(parentValue, args) {
+        return axios
+          .delete(`http://localhost:3000/customers/${args.id}`)
+          .then(res => res.data);
+      }
+    },
+```
+
 
 ### https://graphql.org/
