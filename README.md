@@ -1,5 +1,5 @@
 
-![image](https://www.vectorlogo.zone/logos/graphql/graphql-card.png)
+![image](https://github.com/Jordan-Gilliam/graphql-crud-quick-reference/blob/master/logo.png)
 
 # GraphQL CRUD methods
 
